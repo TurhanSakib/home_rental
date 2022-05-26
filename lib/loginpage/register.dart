@@ -1,10 +1,11 @@
 import 'package:email_validator/email_validator.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:home_rental/loginpage/login.dart';
 
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key key,  this.title}) : super(key: key);
+  const RegisterPage({Key? key,  required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -14,6 +15,13 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   final _formKey = GlobalKey<FormState>();
   var rememberValue = false;
+
+
+  // @override
+  // Future<void> initState() async {
+  //   super.initState();
+  //   await Firebase.initializeApp();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +51,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     children: [
                       Expanded(
                         child: TextFormField(
-                          validator: (value) => EmailValidator.validate(value)
+                          validator: (value) => EmailValidator.validate(value!)
                               ? null
                               : "Please enter a valid email",
                           maxLines: 1,
@@ -61,7 +69,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                       Expanded(
                         child: TextFormField(
-                          validator: (value) => EmailValidator.validate(value)
+                          validator: (value) => EmailValidator.validate(value!)
                               ? null
                               : "Please enter a valid email",
                           maxLines: 1,
@@ -80,7 +88,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     height: 20,
                   ),
                   TextFormField(
-                    validator: (value) => EmailValidator.validate(value)
+                    validator: (value) => EmailValidator.validate(value!)
                         ? null
                         : "Please enter a valid email",
                     maxLines: 1,
@@ -116,7 +124,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     height: 20,
                   ),
                   ElevatedButton(
-                    onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginPage()));
+                    onPressed: () {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginPage(title: '',)));
                     },
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),

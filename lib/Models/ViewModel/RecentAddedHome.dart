@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-import 'package:glassmorphism_ui/glassmorphism_ui.dart';
+
+// import 'package:flutter_icons/flutter_icons.dart';
+// import 'package:glassmorphism_ui/glassmorphism_ui.dart';
 import 'package:home_rental/Models/Datamodel/PlaceModel.dart';
 import 'package:home_rental/Screens/PlaceDetails.dart';
 
 class RecentAdded extends StatelessWidget {
   final PlaceModel placeModel;
-  RecentAdded({this.placeModel});
+
+  RecentAdded({required this.placeModel});
 
   @override
   Widget build(BuildContext context) {
@@ -34,15 +36,15 @@ class RecentAdded extends StatelessWidget {
             borderRadius: BorderRadius.circular(32),
             boxShadow: [
               BoxShadow(
-                blurRadius: 10,
-                color: Colors.grey.withOpacity(0.5),
-                offset: Offset(3, 5),
+                blurRadius: 9,
+                color: Colors.black.withOpacity(0.2),
+                offset: Offset(3, 3),
               ),
               BoxShadow(
-                blurRadius: 10,
-                color: Colors.grey.withOpacity(0.5),
-                offset: Offset(-3, 0),
-              ),
+                blurRadius: 9,
+                color: Colors.white,
+                offset: Offset(-3, -3),
+              )
             ],
           ),
           child: Padding(
@@ -54,51 +56,73 @@ class RecentAdded extends StatelessWidget {
                   children: [
                     Hero(
                       tag: placeModel.title,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(24),
-                        child: Container(
-                          height: 200,
-                          child: Image(
-                            fit: BoxFit.cover,
-                            image: AssetImage(placeModel.imagePath),
-                          ),
+                      child: Container(
+                        height: 200,
+                        width: 165,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(31),
+                          image: DecorationImage(
+                              image: AssetImage(placeModel.imagePath),
+                              fit: BoxFit.cover),
+                        ),
+                        child: Stack(
+                          children: [
+                            Container(
+                                width: double.infinity,
+                                height: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: Colors.black.withOpacity(.5),
+                                  borderRadius: BorderRadius.circular(31),
+                                )),
+                            Center(
+                              child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "৭০০০৳",
+                                    style: TextStyle(
+                                        fontSize: 21,
+                                        color: Colors.white,
+                                        fontFamily: "Rounded_Elegance"),
+                                  )),
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                    Positioned(
-                      bottom: 0,
-                      right: 0,
-                      child: GlassContainer(
-                        height: 50,
-                        blur: 5,
-                        // shadowStrength: 10,
-                        opacity: 0.5,
-                        width: 180,
-                        //this below code to remove border
-                        border: Border.fromBorderSide(BorderSide.none),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(
-                            24,
-                          ),
-                          bottomRight: Radius.circular(
-                            24,
-                          ),
-                        ),
-                        child: Center(
-                            child: RichText(
-                          text: TextSpan(
-                            text: "৭০০০৳ / ",
-                            style: textTheme.headline6,
-                            children: <TextSpan>[
-                              TextSpan(
-                                text: 'মাসিক',
-                                style: DefaultTextStyle.of(context).style,
-                              ),
-                            ],
-                          ),
-                        )),
-                      ),
-                    ),
+                    // Positioned(
+                    //   child: Container(
+                    //     height: 50,
+                    //     width: 180,
+                    //     //this below code to remove border
+                    //     decoration: BoxDecoration(
+                    //
+                    //       border: Border.fromBorderSide(BorderSide.none),
+                    //       borderRadius: BorderRadius.only(
+                    //         topLeft: Radius.circular(
+                    //           24,
+                    //         ),
+                    //         bottomRight: Radius.circular(
+                    //           24,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //     child: Padding(
+                    //       padding: const EdgeInsets.all(8.0),
+                    //       child: RichText(
+                    //       text: TextSpan(
+                    //       text: "৭০০০৳ / ",
+                    //       style: textTheme.headline6,
+                    //       children: <TextSpan>[
+                    //         TextSpan(
+                    //           text: 'মাসিক',
+                    //           style: DefaultTextStyle.of(context).style,
+                    //         ),
+                    //       ],
+                    //       ),
+                    //     ),
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
                 SizedBox(
@@ -106,7 +130,7 @@ class RecentAdded extends StatelessWidget {
                 ),
                 Text(
                   placeModel.title,
-                  style: textTheme.headline6.apply(
+                  style: textTheme.headline6?.apply(
                     color: Colors.black,
                   ),
                 ),
@@ -115,7 +139,7 @@ class RecentAdded extends StatelessWidget {
                 ),
                 Text(
                   placeModel.details,
-                  style: textTheme.bodyText1.apply(
+                  style: textTheme.bodyText1?.apply(
                     color: Colors.black45,
                   ),
                 ),
@@ -138,7 +162,7 @@ class RecentAdded extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Icon(
-                              FlutterIcons.bed_faw,
+                              Icons.bed,
                               size: 16,
                             ),
                             Text("5")
@@ -159,7 +183,7 @@ class RecentAdded extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Icon(
-                              FlutterIcons.bath_faw,
+                              Icons.bathtub,
                               size: 16,
                             ),
                             Text("3")
@@ -180,7 +204,7 @@ class RecentAdded extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Icon(
-                              FlutterIcons.fridge_outline_mco,
+                              Icons.severe_cold,
                               size: 16,
                             ),
                             Text("2")

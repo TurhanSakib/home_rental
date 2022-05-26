@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
+
+// import 'package:flutter_icons/flutter_icons.dart';
 import 'package:home_rental/Models/Datamodel/PlaceModel.dart';
 import 'package:home_rental/Models/ViewModel/BestOffer.dart';
 import 'package:home_rental/Models/ViewModel/RecentAddedHome.dart';
@@ -15,47 +15,64 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      backgroundColor: Color(0xffF8F0E3),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        color: Colors.grey[100],
+        child: SafeArea(
           child: ListView(
+            physics: new BouncingScrollPhysics(),
             shrinkWrap: true,
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: 20,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 17.0),
+                    child: Container(
                       height: 55,
                       width: 55,
                       decoration: BoxDecoration(
-                        color: Colors.grey[300],
+                        color: Colors.grey[200],
                         borderRadius: BorderRadius.circular(18),
                         boxShadow: [
                           BoxShadow(
-                            blurRadius: 15,
-                            color: Colors.black.withOpacity(0.3),
-                            offset: Offset(5, 5),
+                            blurRadius: 9,
+                            color: Colors.black.withOpacity(0.2),
+                            offset: Offset(3, 3),
+                          ),
+                          BoxShadow(
+                            blurRadius: 9,
+                            color: Colors.white,
+                            offset: Offset(-3, -3),
                           )
                         ],
                       ),
                       child: Icon(
-                        FlutterIcons.th_large_faw,
+                        Icons.apps,
                         color: kCustomBlackColor,
                       ),
                     ),
-                    Container(
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 17.0),
+                    child: Container(
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            blurRadius: 15,
-                            color: Colors.black.withOpacity(0.4),
-                            offset: Offset(-5, 10),
+                            blurRadius: 9,
+                            color: Colors.black.withOpacity(0.2),
+                            offset: Offset(3, 3),
+                          ),
+                          BoxShadow(
+                            blurRadius: 9,
+                            color: Colors.white,
+                            offset: Offset(-3, -3),
                           )
                         ],
                       ),
@@ -67,13 +84,13 @@ class _HomePageState extends State<HomePage> {
                           image: AssetImage('asset/images/sakib.jpg'),
                         ),
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
               SizedBox(height: 50),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 17.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -85,9 +102,14 @@ class _HomePageState extends State<HomePage> {
                           borderRadius: BorderRadius.circular(24),
                           boxShadow: [
                             BoxShadow(
-                              blurRadius: 15,
-                              color: Colors.black.withOpacity(0.3),
-                              offset: Offset(5, 5),
+                              blurRadius: 9,
+                              color: Colors.black.withOpacity(0.2),
+                              offset: Offset(3, 3),
+                            ),
+                            BoxShadow(
+                              blurRadius: 9,
+                              color: Colors.white,
+                              offset: Offset(-3, -3),
                             )
                           ],
                         ),
@@ -95,9 +117,11 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.all(8.0),
                           child: TextField(
                             decoration: InputDecoration(
-                              prefixIcon: Icon(FlutterIcons.magnify_mco),
+                              prefixIcon: Icon(Icons.search),
                               border: InputBorder.none,
-                              hintStyle: new TextStyle(color: Colors.grey[800]),
+                              hintStyle: new TextStyle(color: Colors.grey[800],
+                              fontFamily: "Rounded_Elegance"
+                              ),
                               hintText: "Home",
                               fillColor: Color(0xffF3F4F8),
                             ),
@@ -111,18 +135,23 @@ class _HomePageState extends State<HomePage> {
                         height: 65,
                         width: 65,
                         decoration: BoxDecoration(
-                          color: kPrimaryColor,
+                          color: Colors.deepPurple,
                           borderRadius: BorderRadius.circular(24),
                           boxShadow: [
                             BoxShadow(
-                              blurRadius: 15,
-                              color: Colors.black.withOpacity(0.4),
-                              offset: Offset(-5, 10),
+                              blurRadius: 9,
+                              color: Colors.black.withOpacity(0.2),
+                              offset: Offset(3, 3),
+                            ),
+                            BoxShadow(
+                              blurRadius: 9,
+                              color: Colors.white,
+                              offset: Offset(-3, -3),
                             )
                           ],
                         ),
                         child: Icon(
-                          FlutterIcons.sliders_h_faw5s,
+                          Icons.filter_alt_outlined,
                           color: Colors.grey[300],
                         ),
                       ),
@@ -132,20 +161,25 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(height: 50),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 17.0),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       "Recently Added",
-                      style: Theme.of(context).textTheme.headline5,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 21,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Rounded_Elegance"),
                     ),
                     Text(
                       "See all",
                       style: TextStyle(
-                        color: Colors.black54,
-                      ),
+                          color: Colors.black54,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Rounded_Elegance"),
                     ),
                   ],
                 ),
@@ -154,6 +188,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 height: 400,
                 child: ListView(
+                  physics: new BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: false,
                   children: [
@@ -173,21 +208,28 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(height: 50),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Today's Best Offer ✨",
-                    style: Theme.of(context).textTheme.headline5,
-                  ),
-                  Text(
-                    "See all",
-                    style: TextStyle(
-                        // color: Colors.black54,
-                        ),
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 17.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Today's Best Offer  ✨",
+                      style: TextStyle(
+                          fontSize: 21,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Rounded_Elegance"),
+                    ),
+                    Text(
+                      "See all",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Rounded_Elegance"),
+                    ),
+                  ],
+                ),
               ),
               SizedBox(height: 30),
               BestOffer(

@@ -16,10 +16,10 @@ class PlaceModel {
     "asset/images/image9.jpg",
   ];
   PlaceModel({
-    @required this.title,
-    @required this.details,
-    @required this.rent,
-    @required this.imagePath,
+    required this.title,
+    required this.details,
+    required this.rent,
+    required this.imagePath,
   });
 }
 

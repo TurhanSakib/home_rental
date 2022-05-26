@@ -5,7 +5,7 @@ import 'package:home_rental/main.dart';
 
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key key,  this.title}) : super(key: key);
+  const LoginPage({Key? key,  required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 children: [
                   TextFormField(
-                    validator: (value) => EmailValidator.validate(value)
+                    validator: (value) => EmailValidator.validate(value!)
                         ? null
                         : "Please enter a valid email",
                     maxLines: 1,
@@ -80,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                     activeColor: Theme.of(context).colorScheme.primary,
                     onChanged: (newValue) {
                       setState(() {
-                        rememberValue = newValue;
+                        rememberValue = newValue!;
                       });
                     },
                     controlAffinity: ListTileControlAffinity.leading,

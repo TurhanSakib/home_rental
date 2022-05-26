@@ -1,37 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
+// import 'package:flutter_icons/flutter_icons.dart';
 import 'package:home_rental/Models/Datamodel/PlaceModel.dart';
 
 class BestOffer extends StatelessWidget {
   final PlaceModel placeModel;
-  BestOffer({this.placeModel});
+  BestOffer({required this.placeModel});
 
   @override
   Widget build(BuildContext context) {
     final TextTheme textTheme = Theme.of(context).textTheme;
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 16.0,
-        vertical: 12,
-      ),
+      padding: const EdgeInsets.fromLTRB(17, 0, 17, 21),
       child: Container(
         height: 220,
         width: 300,
         decoration: BoxDecoration(
           // color: Colors.blue,
           color: Colors.grey[200],
-          borderRadius: BorderRadius.circular(32),
+          borderRadius: BorderRadius.circular(31),
           boxShadow: [
             BoxShadow(
-              blurRadius: 10,
-              color: Colors.grey.withOpacity(0.5),
-              offset: Offset(3, 5),
+              blurRadius: 9,
+              color: Colors.black.withOpacity(0.2),
+              offset: Offset(3, 3),
             ),
             BoxShadow(
-              blurRadius: 10,
-              color: Colors.grey.withOpacity(0.5),
-              offset: Offset(-3, 0),
-            ),
+              blurRadius: 9,
+              color: Colors.white,
+              offset: Offset(-3, -3),
+            )
           ],
         ),
         child: Padding(
@@ -60,7 +57,7 @@ class BestOffer extends StatelessWidget {
                     ),
                     Text(
                       placeModel.title,
-                      style: textTheme.headline6.apply(
+                      style: textTheme.headline6?.apply(
                         color: Colors.black,
                       ),
                     ),
@@ -70,7 +67,7 @@ class BestOffer extends StatelessWidget {
                     Text(
                       placeModel.details,
                       overflow: TextOverflow.fade,
-                      style: textTheme.bodyText1.apply(
+                      style: textTheme.bodyText1?.apply(
                         color: Colors.black45,
                       ),
                     ),
@@ -95,7 +92,7 @@ class BestOffer extends StatelessWidget {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Icon(
-                                    FlutterIcons.bed_faw,
+                                    Icons.bed,
                                     size: 16,
                                     color: Colors.black,
                                   ),
@@ -123,7 +120,7 @@ class BestOffer extends StatelessWidget {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Icon(
-                                    FlutterIcons.bath_faw,
+                                    Icons.bathtub,
                                     size: 16,
                                     color: Colors.black,
                                   ),
@@ -151,7 +148,7 @@ class BestOffer extends StatelessWidget {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Icon(
-                                    FlutterIcons.fridge_outline_mco,
+                                    Icons.severe_cold,
                                     size: 16,
                                     color: Colors.black,
                                   ),
@@ -174,7 +171,7 @@ class BestOffer extends StatelessWidget {
                     RichText(
                       text: TextSpan(
                         text: "৳৭০০০ /",
-                        style: textTheme.headline6.apply(
+                        style: textTheme.headline6?.apply(
                           color: Colors.black,
                         ),
                         children: <TextSpan>[
